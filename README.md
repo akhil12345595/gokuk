@@ -1,2 +1,3 @@
-# gokuk
-sms detection
+streamlit
+nltk
+scikit-learn
