@@ -31,14 +31,14 @@ tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
 # Streamlit UI
-st.set_page_config(page_title="SMS Spam Detector", page_icon="📩", layout="centered")
+st.set_page_config(page_title="SMS Detection", page_icon="📩", layout="centered")
 
-st.title("📩 SMS / Email Spam Classifier")
-st.write("Enter any message below to check whether it's classified as **Spam** or **Legitimate (Ham)**.")
+st.title("📩 SMS Spam Detection")
+st.write("Enter any message below to run spam detection.")
 
 input_sms = st.text_area("Enter Message Here", height=150, placeholder="e.g., Congratulations! You won a $1,000 gift card...")
 
-if st.button("Predict"):
+if st.button("Detect"):
     if not input_sms.strip():
         st.warning("Please enter a message first!")
     else:
@@ -53,6 +53,6 @@ if st.button("Predict"):
         
         # 4. Display result
         if result == 1:
-            st.error("🚨 **This is a SPAM message!**")
+            st.error("🚨 **Detection Result: SPAM!**")
         else:
-            st.success("✅ **This is NOT spam (Ham).**")
+            st.success("✅ **Detection Result: NOT SPAM (Ham).**")
